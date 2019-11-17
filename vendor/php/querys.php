@@ -74,10 +74,10 @@ $query_buscar_clientes= 'SELECT * FROM clientes c
                     WHERE c.visible=1';
 
 //Query para cargar indes (visibles) en select
-$query_buscar_indes= 'SELECT * FROM indes i 
+$query_buscar_indes= 'SELECT i.id_indes, ti.tipo, t.tema, i.fecha, i.observaciones FROM indes i 
                     INNER JOIN tipo_indes ti ON ti.id_tipo_indes=i.id_tipo_indes
                     INNER JOIN temas t ON t.id_tema=i.id_tema
-                    WHERE i.visible=1 ORDER BY i.fecha DESC';
+                    WHERE i.visible=1';
 
 //Query para cargar visitas (visibles) en select
 $query_buscar_visitas= 'SELECT v.id_visita, c.cuit, tv.tipo_visita, ta.tipo_asistencia,

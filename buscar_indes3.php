@@ -18,7 +18,7 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
 <html lang="en">
 
 <!-- Header include-->
-<?php $title = "Buscar I+D"; 
+<?php $title = "Nuevo I+D"; 
       include 'vendor/php/includes/header.php' ?>
 
 <body id="page-top">
@@ -54,24 +54,24 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
             <form method="get">
               <div class="form-row">
                 <div class="form-group col-md-4 col-4">
-                    <label for="tema">Título</label>
-                    <select class="form-control" id="selectema" name="titulo">
-                      <option value=''>Selecione título...</option>
-                          <?php
-                              foreach($enlace->query($query_titulo_indes) as $opciones): ?>
-                      <OPTION value="<?php echo $opciones['id_indes'] ?>"><?php echo $opciones['titulo_indes'] ?></OPTION>
-                          <?php endforeach ?> 
-                    </select>
+                        <label for="tema">Título</label>
+                        <select class="form-control" id="selectema" name="titulo">
+                          <option value=''>Selecione título...</option>
+                              <?php
+                                 foreach($enlace->query($query_titulo_indes) as $opciones): ?>
+                         <OPTION value="<?php echo $opciones['id_indes'] ?>"><?php echo $opciones['titulo_indes'] ?></OPTION>
+                              <?php endforeach ?> 
+                        </select>
                 </div>
               <div class="form-group col-md-4 col-4">
-                  <label for="tema">Seleccionar tipo</label>
-                  <select class="form-control" id="selectema" name="tipo">
-                    <option value=''>Selecione tipo...</option>
-                        <?php
-                            foreach($enlace->query($query_tipo_indes) as $opciones): ?>
-                    <OPTION value="<?php echo $opciones['id_tipo_indes'] ?>"><?php echo $opciones['tipo'] ?></OPTION>
-                        <?php endforeach ?> 
-                  </select>
+                        <label for="tema">Seleccionar tipo</label>
+                        <select class="form-control" id="selectema" name="tipo">
+                          <option value=''>Selecione tipo...</option>
+                              <?php
+                                 foreach($enlace->query($query_tipo_indes) as $opciones): ?>
+                         <OPTION value="<?php echo $opciones['id_tipo_indes'] ?>"><?php echo $opciones['tipo'] ?></OPTION>
+                              <?php endforeach ?> 
+                        </select>
                 </div>
                 <div class="form-group col-md-4 col-sm-4">
                       <label for="tema">Tema</label>
@@ -124,6 +124,7 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
                     <tbody>
                       <tr>
                       <?php
+
                       // FILTROS PARA BUSCAR POR INDES
                     $query_aConsultar = $query_buscar_indes;
 
@@ -141,10 +142,12 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
                     if (!empty ($tema)){
                     $query_aConsultar.=" AND (id_tema=$tema)";
                     }
-                    
-                    $result = mysqli_query($enlace,$query_aConsultar) or die($enlace->error);
-                    while ($row= $result->fetch_assoc()){
-                      $observacionesModal=$row['observaciones']; 
+
+
+
+
+                    $result = mysqli_query($enlace, $query_aConsultar) or die($enlace->error);
+                    while ($row= $result->fetch_assoc()){ 
                       ?>
                        <tr>
                           <td><?php echo $row['id_indes'];?></td>
@@ -152,9 +155,9 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
                           <td><?php echo $row['tipo'];?></td>
                           <td><?php echo $row['tema'];?></td>
                           <td><?php echo $row['fecha'];?></td>
-                          <td><div><a href="javascript:void(0);" title="Ver observación" data-toggle="modal" data-target="#modalObservaciones" onclick="carga_ajax('<?php echo $observacionesModal;?>','modalObservaciones','vendor/php/ajax/observacion_ajax.php');"><i class="material-icons">visibility</i></a></div></td>
-                          <td><a href="#" class="settings" title="Modificar" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a></td>
-                          <td><a href="vendor/php/borrado_logico.php?indes= <?php echo $row['id_indes'];?>" onclick= "return confirmation()" class="delete" title="Borrar" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a></td>
+                          <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Ver</button></td>
+                          <td><a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a></td>
+                          <td><a href="vendor/php/borrado_logico.php?indes= <?php echo $row['id_indes'];?>" onclick= "return confirmation()" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a></td>
                        </tr>
                     <?php }?>  
                       </tr>
@@ -189,23 +192,6 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
 
     <!-- Scripts include-->
     <?php include 'vendor/php/includes/scripts.php'?>
-
-    <!--Script Modal Ajax-->
-    <script>
-      function carga_ajax (x,div,url)
-      {
-        //alert(ruta);
-        $.post
-        (
-          url,
-          {x:x},
-          function (resp)
-          {
-            $("#"+div+"").html (resp);
-          }
-        );
-      }
-    </script>
   
       <!--Script Confirmacion-->
       <script type="text/javascript">
