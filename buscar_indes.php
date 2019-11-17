@@ -146,7 +146,7 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
                     while ($row= $result->fetch_assoc()){
                       $observacionesModal=$row['observaciones']; 
                       ?>
-                       <tr>
+                       <tr> 
                           <td><?php echo $row['id_indes'];?></td>
                           <td><?php echo $row['titulo_indes'];?></td>
                           <td><?php echo $row['tipo'];?></td>
