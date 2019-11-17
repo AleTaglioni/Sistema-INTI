@@ -152,7 +152,7 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
                        </tr>
                     <?php }?>     
                   </tr>
-                </tbody>
+                 </tbody>
               </table>
             </div>
           </div>
