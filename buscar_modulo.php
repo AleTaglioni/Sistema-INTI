@@ -61,14 +61,14 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
                       <option value=''>Seleccionar título..</option>
                         <?php 
                         //Ciclo donde se trae todos los títulos de modulos (visibles) de la base de datos. variable $enlace heredada de conexion.php
-                       foreach($enlace->query($query_titulo_modulo) AS $opciones): ?>
+                       foreach($enlace->query($query_titulo_modulos) AS $opciones): ?>
                        <option value="<?php echo $opciones ['id_modulo'] ?>"> <?php echo $opciones ['titulo_modulo'] ?></option>
                        <?php endforeach ?>  
                       </select>
                 </div>
                 <div class="form-group col-md-4 col-sm-4">
                       <label for="tema">Capacitación</label>
-                      <select class="form-control" id="select_id" name="capacitación">
+                      <select class="form-control" id="select_id" name="capacitacion">
                       <option value=''>Seleccionar título..</option>
                         <?php 
                         //Ciclo donde se trae todos los títulos de capacitación (visibles) de la base de datos. variable $enlace heredada de conexion.php
