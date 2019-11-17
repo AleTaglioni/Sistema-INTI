@@ -59,7 +59,7 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
                       <option>Selecione título...</option>
                           <?php
                               foreach($enlace->query($query_titulo_indes) as $opciones): ?>
-                      <OPTION value="<?php echo $opciones['id_titulo_indes'] ?>"><?php echo $opciones['titulo_indes'] ?></OPTION>
+                      <OPTION value="<?php echo $opciones['titulo_indes'] ?>"><?php echo $opciones['titulo_indes'] ?></OPTION>
                           <?php endforeach ?> 
                     </select>
                 </div>
@@ -129,7 +129,7 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
 
                     $titulo = $_GET["titulo"];
                     if (!empty ($titulo)){
-                    $query_aConsultar.=" AND (id_tipo_indes=$titulo)";
+                    $query_aConsultar.=" AND (titulo_indes=$titulo)";
                     }
 
                     $tipo = $_GET["tipo"];

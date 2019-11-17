@@ -41,6 +41,9 @@ $query_tipo_visitas = "SELECT * FROM tipo_visitas WHERE visible=1";
 //Query para cargar tipos de indes (visibles) en select
 $query_tipo_indes = "SELECT * FROM tipo_indes WHERE visible=1";
 
+//Query para cargar titulos de indes (visibles) en select
+$query_titulo_indes = "SELECT * FROM indes WHERE visible=1";
+
 //Query para cargar tipos de asistencias (visibles) en select
 $query_tipo_asistencias = "SELECT * FROM tipo_asistencias WHERE visible=1";
 
