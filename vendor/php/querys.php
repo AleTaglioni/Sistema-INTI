@@ -60,12 +60,12 @@ $query_buscar_modulos= 'SELECT m.id_modulo, c.titulo_capacitacion, m.titulo_modu
                     INNER JOIN capacitaciones c ON c.id_capacitacion=m.id_capacitacion 
                     INNER JOIN modulos_usuarios mu ON mu.id_modulo=m.id_modulo
                     INNER JOIN usuarios u ON mu.id_usuario=u.id_usuario
-                    WHERE c.visible=1 ORDER BY m.fecha DESC';
+                    WHERE c.visible=1';
 
 //Query para cargar proyectos (visibles) en select
 $query_buscar_proyectos= 'SELECT * FROM proyectos p 
                     INNER JOIN tipo_proyectos tp ON tp.id_tipo_proyecto=p.id_tipo_proyecto
-                    WHERE p.visible=1 ORDER BY p.fecha_inicio DESC';
+                    WHERE p.visible=1';
 
 
 //Query para cargar clienttes (visibles) en select
@@ -88,13 +88,13 @@ $query_buscar_visitas= 'SELECT v.id_visita, c.cuit, tv.tipo_visita, ta.tipo_asis
                     INNER JOIN proyectos p ON p.id_proyecto=v.id_proyecto
                     INNER JOIN visita_usuario vu ON vu.id_visita=v.id_visita
                     INNER JOIN usuarios u ON vu.id_usuario=u.id_usuario
-                    WHERE v.visible=1  ORDER BY v.fecha DESC';
+                    WHERE v.visible=1';
 
 //Query para cargar capacitaciones (visibles)
 $query_buscar_capacitaciones= 'SELECT c.id_capacitacion, c.titulo_capacitacion, tc.tipo_capacitacion, p.titulo_proyecto, c.fecha_inicio, c.fecha_fin, c.asistentes, c.empresas, c.observaciones 
                                 FROM capacitaciones C 
                                 INNER JOIN tipo_capacitaciones tc ON tc.id_tipo_capacitacion=c.id_tipo_capacitacion
-                                INNER JOIN proyectos p ON p.id_proyecto=c.id_proyecto WHERE c.visible=1 ORDER BY c.fecha_inicio DESC';
+                                INNER JOIN proyectos p ON p.id_proyecto=c.id_proyecto WHERE c.visible=1';
 
 //Query para cargar usuarios (visibles) en select
 $query_buscar_usuarios= 'SELECT u.id_usuario,u.usuario,u.fecha_alta,u.id_rol,u.visible,u.nombre,r.rol 
