@@ -11,7 +11,7 @@ include ("conexion.php");
     $observacion  = mysqli_real_escape_string($enlace,(strip_tags($_POST["observacion"],ENT_QUOTES)));
     $visible  = 1;
     
-    $consultaIgual = mysqli_query($enlace, "SELECT * FROM indes WHERE titulo='$titulo'");
+    $consultaIgual = mysqli_query($enlace, "SELECT * FROM indes WHERE titulo_indes='$titulo'");
     if(mysqli_num_rows($consultaIgual) == 0){
             $insert = mysqli_query($enlace, "INSERT INTO indes(fecha,titulo_indes,id_tema,observaciones,id_usuario_registro,id_tipo_indes,visible)
                                                 VALUES('$fecha','$titulo','$tema','$observacion','$asesor','$tipo','$visible')") or die(mysqli_error($enlace));
