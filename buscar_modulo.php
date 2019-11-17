@@ -93,7 +93,6 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
             </form>
           </div>
         </div>
-        
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
