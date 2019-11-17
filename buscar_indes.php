@@ -134,12 +134,12 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
 
                     $tipo = $_GET["tipo"];
                     if (!empty ($tipo)){
-                    $query_aConsultar.=" AND (id_tipo_indes=$tipo)";
+                    $query_aConsultar.=" AND (i.id_tipo_indes=$tipo)";
                     }
                     
                     $tema = $_GET["tema"];
                     if (!empty ($tema)){
-                    $query_aConsultar.=" AND (id_tema=$tema)";
+                    $query_aConsultar.=" AND (i.id_tema=$tema)";
                     }
                     
                     $result = mysqli_query($enlace,$query_aConsultar) or die($enlace->error);
