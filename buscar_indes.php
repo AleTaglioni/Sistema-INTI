@@ -43,7 +43,7 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
           <li class="breadcrumb-item">
             <a href="#">Panel de control</a>
           </li>
-          <li class="breadcrumb-item active">Nueva Produccion I+D</li>
+          <li class="breadcrumb-item active">Buscar Produccion I+D</li>
         </ol>
         <!-- Area Chart Example-->
         <div class="card mb-3">
@@ -152,7 +152,7 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
                           <td><?php echo $row['tipo'];?></td>
                           <td><?php echo $row['tema'];?></td>
                           <td><?php echo $row['fecha'];?></td>
-                          <td><div><a href="javascript:void(0);" title="Ver observación" data-toggle="modal" data-target="#modalObservaciones" onclick="carga_ajax('<?php echo $observacionesModal;?>','modalObservaciones','vendor/php/ajax/observacion_ajax.php');"><i class="material-icons">visibility</i></a></div></td>
+                          <td><a href="javascript:void(0);" title="Ver observación" data-toggle="modal" data-target="#modalObservaciones" onclick="carga_ajax('<?php echo $observacionesModal;?>','modalObservaciones','vendor/php/ajax/observacion_ajax.php');"><i class="material-icons">visibility</i></a></td>
                           <td><a href="#" class="settings" title="Modificar" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a></td>
                           <td><a href="vendor/php/borrado_logico.php?indes= <?php echo $row['id_indes'];?>" onclick= "return confirmation()" class="delete" title="Borrar" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a></td>
                        </tr>
